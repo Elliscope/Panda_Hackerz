@@ -10,140 +10,52 @@
       <script src="js/foundation.min.js"></script>
       <script src="js/foundation/foundation.reveal.js"></script>
       
-      
       <style>
         .row {display: block;}
       </style>
 
        </head>
-
-
-                
                 <body>
-                  <script>
-  // This is called with the results from from FB.getLoginStatus().
-  function statusChangeCallback(response) {
-    console.log('statusChangeCallback');
-    console.log(response);
-    // The response object is returned with a status field that lets the
-    // app know the current login status of the person.
-    // Full docs on the response object can be found in the documentation
-    // for FB.getLoginStatus().
-    if (response.status === 'connected') {
-      // Logged into your app and Facebook.
-      testAPI();
-    } else if (response.status === 'not_authorized') {
-      // The person is logged into Facebook, but not your app.
-      document.getElementById('status').innerHTML = 'Please log ' +
-        'into this app.';
-    } else {
-      // The person is not logged into Facebook, so we're not sure if
-      // they are logged into this app or not.
-      document.getElementById('status').innerHTML = 'Please log ' +
-        'into Facebook.';
-    }
-  }
+                <script>
+				  window.fbAsyncInit = function() {
+				    FB.init({
+				      appId      : '568635909933560',
+				      xfbml      : true,
+				      version    : 'v2.1'
+				    });
+				  };
 
-  // This function is called when someone finishes with the Login
-  // Button.  See the onlogin handler attached to it in the sample
-  // code below.
-  function checkLoginState() {
-    FB.getLoginStatus(function(response) {
-      statusChangeCallback(response);
-    });
-  }
-
-  window.fbAsyncInit = function() {
-  FB.init({
-    appId      : '568635909933560',
-    cookie     : true,  // enable cookies to allow the server to access 
-                        // the session
-    xfbml      : true,  // parse social plugins on this page
-    version    : 'v2.1' // use version 2.1
-  });
-
-  // Now that we've initialized the JavaScript SDK, we call 
-  // FB.getLoginStatus().  This function gets the state of the
-  // person visiting this page and can return one of three states to
-  // the callback you provide.  They can be:
-  //
-  // 1. Logged into your app ('connected')
-  // 2. Logged into Facebook, but not your app ('not_authorized')
-  // 3. Not logged into Facebook and can't tell if they are logged into
-  //    your app or not.
-  //
-  // These three cases are handled in the callback function.
-
-  FB.login(function(response) {
-  if (response.status === 'connected') {
-  // Logged into your app and Facebook.
-  //  console.log(response.authResponse.accessToken);
-  } else if (response.status === 'not_authorized') {
-  // The person is logged into Facebook, but not your app.
-    
-  } else {
-    // The person is not logged into Facebook, so we're not sure if
-    // they are logged into this app or not.
-      
-  }
-  });
-
-  // Load the SDK asynchronously
-  (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
-
-  // Here we run a very simple test of the Graph API after login is
-  // successful.  See statusChangeCallback() for when this call is made.
-  function testAPI() {
-    console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me', function(response) {
-      console.log('Successful login for: ' + response.name);
-      document.getElementById('status').innerHTML =
-        'Thanks for logging in, ' + response.name + '!';
-    });
-  }
-</script>
-
-<!--
-  Below we include the Login Button social plugin. This button uses
-  the JavaScript SDK to present a graphical Login button that triggers
-  the FB.login() function when clicked.
--->
-
-<!-- <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-</fb:login-button>
-
-<div id="status">
-</div>
- -->                <div id="content">
+				  (function(d, s, id){
+				     var js, fjs = d.getElementsByTagName(s)[0];
+				     if (d.getElementById(id)) {return;}
+				     js = d.createElement(s); js.id = id;
+				     js.src = "//connect.facebook.net/en_US/sdk.js";
+				     fjs.parentNode.insertBefore(js, fjs);
+				   }(document, 'script', 'facebook-jssdk'));
+				</script>
+				
+                <div id="content">
                     <h1>
                         <span class="study">Study</span>
                         <span class="on ">On</span>
                     </h1>
                 </div>
-                     <h2>Who is studying?</h2>
-                    <p>
-                        <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="true"></div>
-                        <br>
-                        <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="standard" data-action="like" data-show-faces="false" data-share="true"></div>
-        
-          
-                    </p>
 
+                    <p>
+                    	<div
+						  class="fb-like"
+						  data-share="true"
+						  data-width="450"
+						  data-show-faces="true">
+						</div>
+                        <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="true"></div>
+                    </p>
+                <h2>Who is studying?</h2>
                      <div class="NewSessionButton">
                       <a href="#" class="button" id="session">Create New Study Session</a>
                      </div>
 
 
-<<<<<<< HEAD
-                <div id="left" style="float:left; width:30%;">
-=======
->>>>>>> eb64cfa31df2bd73aafd7ead4700847bbb780ac1
   <form>
 <div class="NewSession">
   <div class="row">
@@ -177,7 +89,7 @@
 
  <div class="row">  
     <div class="large-4 columns">
-      <label>Starting Time
+      <label>Sarting Time
         <input type="text" placeholder="Where " />
       </label>
     </div>
@@ -215,7 +127,7 @@
   <li><a href="#" id="class4">EE 101</a></li>
 </ul>
                 </div>
-                <div id="right" style="float:right; width:70%;">
+                <div id="right" style="float:right; width:80%;">
 <div id="class1Data">
  <dl class="accordion" data-accordion>
   <dd class="accordion-navigation">
@@ -223,10 +135,10 @@
     <div id="panel1" class="content active">
        <p>Subject | Location | Start Time | Date</p>
         <a href="#" class="button [tiny small large]">Chat</a>
-
           <a href="#" class="button [tiny small large]">Join</a>
     </div>
   </dd>
+  <br>
   <dd class="accordion-navigation">
     <a href="#panel2"> HW5. Iterator Review. I got someone knows well to help</a>
     <div id="panel2" class="content">
@@ -235,6 +147,7 @@
          <a href="#" class="button [tiny small large]">Join</a>
     </div>
   </dd>
+  <br>
   <dd class="accordion-navigation">
     <a href="#panel3">Accordion 3</a>
     <div id="panel3" class="content">
@@ -334,40 +247,18 @@
  </dl>
 </div>
 
-<<<<<<< HEAD
-
-                </div>
-                </div>
-
-                <a href="#" data-reveal-id="myModal">Team Info</a>
-      <div id="myModal" class="reveal-modal" data-reveal>
-      <h2>GO Panda_Hackerz!! :)</h2>
-      <p class="lead">TEAM MEMBERS</p>
-
-      <p>Elliscope Mingzhe Fang</p>
-      <p>Ho Ching Justin Cheng</p>
-      <p>Sampurna Basu</p>
-      <p>Da Young Joanne Kwon</p>
-      <p>Ben Lee</p>
-=======
                 </div>
                 </div>
 
 
 
->>>>>>> eb64cfa31df2bd73aafd7ead4700847bbb780ac1
 
       <a class="close-reveal-modal">&#215;</a>
     </div>
 
-<<<<<<< HEAD
-
-
-=======
                 <br> <br> <br> <br> <br> <br> <br> <br>
                 <div class="footer">
                     <p>
->>>>>>> eb64cfa31df2bd73aafd7ead4700847bbb780ac1
       <!-- Menu -->
       <ul>
         <li><a href="#">About</a></li>
@@ -375,6 +266,8 @@
         <li><a href="#">Help</a></li>
         <li><a href="#">Contact</a></li>
       </ul>
+                    </p>
+                </div>
     </div>
 
 
