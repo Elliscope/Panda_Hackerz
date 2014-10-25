@@ -3618,7 +3618,10 @@ ul.pagination {
   .xxlarge-text-justify {
     text-align: justify !important; } }
 /* Typography resets */
-div,
+div {
+
+}
+
 dl,
 dt,
 dd,

@@ -91,9 +91,5 @@ li {
 .footer_menu {
     text-align: center;
 }
-img {
-    position: absolute;
-    left: 500px;
-    top: 100px;
-    z-index: -1;
-}
+
+
