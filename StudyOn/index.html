@@ -23,11 +23,47 @@
 <body>
 <div id="fb-root"></div>
 <script>
+    // This is called with the results from from FB.getLoginStatus().
+    function statusChangeCallback(response) {
+        console.log('statusChangeCallback');
+        console.log(response);
+        // The response object is returned with a status field that lets the
+        // app know the current login status of the person.
+        // Full docs on the response object can be found in the documentation
+        // for FB.getLoginStatus().
+        if (response.status === 'connected') {
+            // Logged into your app and Facebook.
+            testAPI();
+        } else if (response.status === 'not_authorized') {
+            // The person is logged into Facebook, but not your app.
+            document.getElementById('status').innerHTML = 'Please log ' +
+                    'into this app.';
+        } else {
+            // The person is not logged into Facebook, so we're not sure if
+            // they are logged into this app or not.
+            document.getElementById('status').innerHTML = 'Please log ' +
+                    'into Facebook.';
+        }
+    }
+
+    // This function is called when someone finishes with the Login
+    // Button.  See the onlogin handler attached to it in the sample
+    // code below.
+    function checkLoginState() {
+        FB.getLoginStatus(function(response) {
+            statusChangeCallback(response);
+        });
+    };
+
     window.fbAsyncInit = function() {
         FB.init({
             appId      : '568635909933560',
             xfbml      : true,
             version    : 'v2.1'
+        });
+
+        FB.getLoginStatus(function(response) {
+            statusChangeCallback(response);
         });
     };
 
@@ -48,16 +84,14 @@
     </h1>
 </div>
 
-<p>
-<div
-        class="fb-like"
-        data-share="true"
-        data-width="450"
-        data-show-faces="true">
+<div id="fb_login_button">
+    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+    </fb:login-button>
 </div>
-<div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="true"></div>
-</p>
+
 <h2><big>Who is studying?</big>
+
+    <div id="status"></div>
 
 </h2>
 <div class="NewSessionButton">
@@ -67,8 +101,9 @@
 
 <form name="createnew">
     <div class="NewSession">
+        <SPAN style="position: absolute; top: 300px; left: 530px;width: 500px; height: 500px">
         <div class="row">
-            <div class="large-4 columns">
+            <div class="large-7 columns">
                 <label>Subject
                     <select>
                         <option value="class1">CSCI 104</option>
@@ -81,7 +116,7 @@
         </div>
 
         <div class="row">
-            <div class="large-4 columns">
+            <div class="large-7 columns">
                 <label>Topic
                     <input type="text" name="topic" placeholder="Which specific topic?" />
                 </label>
@@ -89,7 +124,7 @@
         </div>
 
         <div class="row">
-            <div class="large-4 columns">
+            <div class="large-7 columns">
                 <label>Building/Room Number
                     <input type="text" name="place" placeholder="Where can people find you" />
                 </label>
@@ -97,7 +132,7 @@
         </div>
 
         <div class="row">
-            <div class="large-4 columns">
+            <div class="large-7 columns">
                 <label>Ending Time (2014-10-11T11:51:00)
                     <input type="text" name="endTime" placeholder="When " />
                 </label>
@@ -105,21 +140,26 @@
         </div>
 
         <div class="row">
-            <div class="large-4 columns">
+            <div class="large-7 columns">
                 <label>Description
                     <textarea placeholder="Please describe study content briefly"></textarea>
                 </label>
             </div>
         </div>
         <div id="container" style="width:100%;">
+            <SPAN style="position: absolute; top: 400px; left: 15px;width: 500px; height: 500px">
             <div class="create_option", style="float:left; width:50%;" >
             <a href="#" class="button">Create</a>
+                </SPAN>
 
             <div class="cancel_button" style="float:right; width:50%;">
+                <SPAN style="position: absolute; top: 0.2px; left: 150px;width: 500px; height: 500px">
                 <a href="#" class="button">Cancel</a>
-
+                </SPAN>
             </div>
+
         </div>
+
     </div>
 </form>
 
@@ -275,8 +315,9 @@
 <div class="footer">
 
     <div class="footer_menu">
-                         <SPAN style="position: absolute; top: 600px; left: 500px;width: 500px; height: 500px">
+                         <SPAN style="position: absolute; top: 800px; left: 425px;width: 500px; height: 500px">
                         <a href="#" data-reveal-id="myModal">Developer Info</a>
+                             </SPAN>
     </div>
 
     <div id="myModal" class="reveal-modal" data-reveal>
