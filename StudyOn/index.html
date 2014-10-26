@@ -15,8 +15,25 @@
       </style>
 
        </head>
-                
                 <body>
+                <script>
+				  window.fbAsyncInit = function() {
+				    FB.init({
+				      appId      : '568635909933560',
+				      xfbml      : true,
+				      version    : 'v2.1'
+				    });
+				  };
+
+				  (function(d, s, id){
+				     var js, fjs = d.getElementsByTagName(s)[0];
+				     if (d.getElementById(id)) {return;}
+				     js = d.createElement(s); js.id = id;
+				     js.src = "//connect.facebook.net/en_US/sdk.js";
+				     fjs.parentNode.insertBefore(js, fjs);
+				   }(document, 'script', 'facebook-jssdk'));
+				</script>
+				
                 <div id="content">
                     <h1>
                         <span class="study">Study</span>
@@ -25,9 +42,13 @@
                 </div>
                      <h2>Who is studying?</h2>
                     <p>
-                        <div>
-                    <a href="">Login</a>
-                        </div>
+                    	<div
+						  class="fb-like"
+						  data-share="true"
+						  data-width="450"
+						  data-show-faces="true">
+						</div>
+                        <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="true"></div>
                     </p>
 
                      <div class="NewSessionButton">
