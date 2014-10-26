@@ -43,6 +43,7 @@ var main=function()
 
     $('#class1').click(function()
    {
+        alert("class 1.");
        $('#class1Data').show();
        $('#class2Data').hide();
        $('#class3Data').hide();
@@ -52,6 +53,7 @@ var main=function()
 
         $('#class2').click(function()
    {
+   alert("class 2.");
        $('#class1Data').hide();
        $('#class2Data').show();
        $('#class3Data').hide();
@@ -64,6 +66,7 @@ var main=function()
 
     $('#class3').click(function()
    {
+    alert("class 3.");
        $('#class1Data').hide();
        $('#class2Data').hide();
        $('#class3Data').show();
@@ -76,6 +79,7 @@ var main=function()
 
     $('#class4').click(function()
    {
+    alert("class 4.");
        $('#class1Data').hide();
        $('#class2Data').hide();
        $('#class3Data').hide();

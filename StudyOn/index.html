@@ -8,6 +8,12 @@
     <script src="js/vendor/modernizr.js"></script>
     <script src="js/foundation.min.js"></script>
     <script src="js/foundation/foundation.reveal.js"></script>
+    <script src="js/create_new_session.js"></script>
+    
+    
+    <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.3.1.min.js">
+    
+    </script>
 
     <style>
         .row {display: block;}
@@ -15,6 +21,7 @@
 
 </head>
 <body>
+<div id="fb-root"></div>
 <script>
     window.fbAsyncInit = function() {
         FB.init({
@@ -28,9 +35,10 @@
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) {return;}
         js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/en_US/sdk.js";
+        js.src = "http://connect.facebook.net/en_US/sdk.js";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
+    Parse.initialize("OGTM9P9wjR2Si02oxIln7Rj3beLQBchC74OMjO5j", "OC7hOXDbtELOroAPvecKe2q7MyY4G1u8moTnegOY");
 </script>
 
 <div id="content">
@@ -57,7 +65,7 @@
 </div>
 
 
-<form>
+<form name="createnew">
     <div class="NewSession">
         <div class="row">
             <div class="large-4 columns">
@@ -75,7 +83,7 @@
         <div class="row">
             <div class="large-4 columns">
                 <label>Topic
-                    <input type="text" placeholder="Which specific topic?" />
+                    <input type="text" name="topic" placeholder="Which specific topic?" />
                 </label>
             </div>
         </div>
@@ -83,15 +91,15 @@
         <div class="row">
             <div class="large-4 columns">
                 <label>Building/Room Number
-                    <input type="text" placeholder="Where can people find you" />
+                    <input type="text" name="place" placeholder="Where can people find you" />
                 </label>
             </div>
         </div>
 
         <div class="row">
             <div class="large-4 columns">
-                <label>Starting Time
-                    <input type="text" placeholder="When " />
+                <label>Ending Time (2014-10-11T11:51:00)
+                    <input type="text" name="endTime" placeholder="When " />
                 </label>
             </div>
         </div>
@@ -292,12 +300,14 @@
 
 <script>
     $(document).foundation();
+    
+    
 </script>
 
 
 
 
 
-<script src="js/create_new_session.js"></script>
+
 </body>
 </html>
